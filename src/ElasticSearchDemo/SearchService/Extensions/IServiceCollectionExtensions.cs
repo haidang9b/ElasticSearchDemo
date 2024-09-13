@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SearchEngine.Extensions;
 using SearchService.Data;
 using SearchService.Services;
+using SearchService.Services.Contracts;
 
 namespace SearchService.Extensions;
 
@@ -13,6 +15,8 @@ public static class IServiceCollectionExtensions
 
         services.AddDbContext(configuration);
         services.AddServices();
+
+        services.AddElasticsearch(configuration);
 
         return services;
     }
@@ -33,6 +37,7 @@ public static class IServiceCollectionExtensions
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddScoped<ICsvService, CsvService>();
+        services.AddScoped<ITransactionService, TransactionService>();
 
         return services;
     }

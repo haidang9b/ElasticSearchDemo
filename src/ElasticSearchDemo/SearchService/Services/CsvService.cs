@@ -1,8 +1,9 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using Domain.Models;
 using SearchService.Data;
-using SearchService.Dto;
-using SearchService.Models;
+using SearchService.Maps;
+using SearchService.Services.Contracts;
 using System.Globalization;
 
 namespace SearchService.Services;

@@ -1,6 +1,6 @@
 ﻿using Core.Domain;
 
-namespace SearchService.Models;
+namespace Domain.Models;
 
 public class Transaction : EntityBase
 {

@@ -1,5 +1,5 @@
 using SearchService.Extensions;
-using SearchService.Services;
+using SearchService.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,18 +17,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("/sync-data", async (ICsvService csvService) =>
-{
-    await csvService.ReadTransactionAsync();
-
-    return Results.Ok();
-});
-
-app.MapGet("/weatherforecast", () =>
-{
-    return Results.Ok();
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.MapTransactionEndpoins();
 
 app.Run();

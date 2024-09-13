@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SearchService.Models;
+﻿using Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SearchService.Data;
 
