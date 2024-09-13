@@ -16,7 +16,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
 app.MapTransactionEndpoins();
 
 app.Run();
