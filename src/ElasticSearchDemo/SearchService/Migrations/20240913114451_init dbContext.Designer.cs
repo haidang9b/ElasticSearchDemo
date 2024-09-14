@@ -9,49 +9,48 @@ using SearchService.Data;
 
 #nullable disable
 
-namespace SearchService.Migrations
+namespace SearchService.Migrations;
+
+[DbContext(typeof(SearchDbContext))]
+[Migration("20240913114451_init dbContext")]
+partial class initdbContext
 {
-    [DbContext(typeof(SearchDbContext))]
-    [Migration("20240913114451_init dbContext")]
-    partial class initdbContext
+    /// <inheritdoc />
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "8.0.8")
+            .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+        MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("SearchService.Models.Transaction", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasColumnName("id");
+        modelBuilder.Entity("SearchService.Models.Transaction", b =>
+            {
+                b.Property<Guid>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("char(36)")
+                    .HasColumnName("id");
 
-                    b.Property<long>("Amount")
-                        .HasColumnType("bigint")
-                        .HasColumnName("amount");
+                b.Property<long>("Amount")
+                    .HasColumnType("bigint")
+                    .HasColumnName("amount");
 
-                    b.Property<string>("CreatedDate")
-                        .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("created_date");
+                b.Property<string>("CreatedDate")
+                    .IsRequired()
+                    .HasColumnType("longtext")
+                    .HasColumnName("created_date");
 
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("note");
+                b.Property<string>("Note")
+                    .IsRequired()
+                    .HasColumnType("longtext")
+                    .HasColumnName("note");
 
-                    b.HasKey("Id")
-                        .HasName("pk_transactions");
+                b.HasKey("Id")
+                    .HasName("pk_transactions");
 
-                    b.ToTable("transactions", (string)null);
-                });
+                b.ToTable("transactions", (string)null);
+            });
 #pragma warning restore 612, 618
-        }
     }
 }

@@ -1,16 +1,15 @@
 ﻿using CsvHelper.Configuration;
 using Domain.Models;
 
-namespace SearchService.Maps
+namespace SearchService.Maps;
+
+public class TransactionMap : ClassMap<Transaction>
 {
-    public class TransactionMap : ClassMap<Transaction>
+    public TransactionMap()
     {
-        public TransactionMap()
-        {
-            Map(m => m.CreatedDate).Name("date");
-            Map(m => m.Amount).Name("amount");
-            Map(m => m.Note).Name("notes");
-            Map(m => m.Code).Name("code");
-        }
+        Map(m => m.CreatedDate).Name("date");
+        Map(m => m.Amount).Name("amount");
+        Map(m => m.Note).Name("notes");
+        Map(m => m.Code).Name("code");
     }
 }

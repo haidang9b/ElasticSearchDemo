@@ -12,7 +12,6 @@ public class ElasticsearchService : IElasticsearchService
 
     private const int BulkSize = 1000; // Maximum number of documents per bulk request
 
-
     public ElasticsearchService(ElasticsearchClient client)
     {
         _client = client;

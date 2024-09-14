@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\MessageBus.RabbitMQ\MessageBus.RabbitMQ.csproj" />
+    <ProjectReference Include="..\MessageBus\MessageBus.csproj" />
     <ProjectReference Include="..\SearchEngine\SearchEngine.csproj" />
   </ItemGroup>
 

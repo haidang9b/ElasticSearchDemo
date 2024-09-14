@@ -25,7 +25,7 @@ public static class IServiceCollectionExtensions
                 return true;
             };
 
-        services.AddScoped<IElasticsearchService, ElasticsearchService>();
+        services.AddSingleton<IElasticsearchService, ElasticsearchService>();
 
         return services;
     }

@@ -1,16 +1,12 @@
-﻿using MessageBus;
+﻿using DataReaderService.Configurations;
+using DataReaderService.Consumers;
+using DataReaderService.Messages;
+using DataReaderService.Services;
 using MessageBus.RabbitMQ;
-using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
 using SearchEngine.Extensions;
-using SearchService.Configurations;
-using SearchService.Data;
-using SearchService.Messages;
-using SearchService.Services;
-using SearchService.Services.Contracts;
 
-namespace SearchService.Extensions;
-
+namespace DataReaderService.Extensions;
 public static class IServiceCollectionExtensions
 {
     public static IServiceCollection AddAllServices(this IServiceCollection services, IConfiguration configuration)
@@ -18,7 +14,6 @@ public static class IServiceCollectionExtensions
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
 
-        services.AddDbContext(configuration);
         services.AddServices();
 
         services.AddElasticsearch(configuration);
@@ -28,23 +23,9 @@ public static class IServiceCollectionExtensions
         return services;
     }
 
-    private static IServiceCollection AddDbContext(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddServices(this IServiceCollection services)
     {
-        var connectionString = configuration.GetConnectionString("SearchConnection");
-
-        services.AddDbContext<SearchDbContext>(options =>
-        {
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-            options.UseSnakeCaseNamingConvention();
-        });
-
-        return services;
-    }
-
-    private static IServiceCollection AddServices(this IServiceCollection services)
-    {
-        services.AddScoped<ICsvService, CsvService>();
-        services.AddScoped<ITransactionService, TransactionService>();
+        services.AddSingleton<IReaderService, ReaderService>();
 
         return services;
     }
@@ -63,8 +44,9 @@ public static class IServiceCollectionExtensions
 
         var rabbitMQBuilder = new RabbitMQBuilder(services);
 
-        rabbitMQBuilder.AddSender<TransactionMessage>(messageConfig.TransactionQueue);
-
+        rabbitMQBuilder
+            .AddConsumer<TransactionMessage, TransactionConsumer>(messageConfig.TransactionQueue)
+            .AddConsumerService<TransactionMessage, QueueListenerService>();
 
         return services;
     }
