@@ -1,5 +1,6 @@
 ﻿using DataReaderService.Configurations;
 using DataReaderService.Consumers;
+using DataReaderService.HostedServices;
 using DataReaderService.Messages;
 using DataReaderService.Services;
 using MessageBus.RabbitMQ;
@@ -45,9 +46,9 @@ public static class IServiceCollectionExtensions
         var rabbitMQBuilder = new RabbitMQBuilder(services);
 
         rabbitMQBuilder
-            .AddConsumer<TransactionMessage, TransactionConsumer>(messageConfig.TransactionQueue)
-            .AddConsumerService<TransactionMessage, QueueListenerService>();
+            .AddConsumer<TransactionMessage, TransactionConsumer>(messageConfig.TransactionQueue);
 
+        services.AddHostedService<RabbitMQHostedService>();
         return services;
     }
 }

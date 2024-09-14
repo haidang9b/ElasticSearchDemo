@@ -21,7 +21,8 @@ public static class IServiceCollectionExtensions
 
         services.AddSingleton(new ElasticsearchClient(settings));
         ServicePointManager.ServerCertificateValidationCallback +=
-            (sender, certificate, chain, errors) => {
+            (sender, certificate, chain, errors) =>
+            {
                 return true;
             };
 

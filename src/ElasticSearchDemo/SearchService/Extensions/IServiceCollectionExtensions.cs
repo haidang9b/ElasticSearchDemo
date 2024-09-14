@@ -1,5 +1,4 @@
-﻿using MessageBus;
-using MessageBus.RabbitMQ;
+﻿using MessageBus.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
 using SearchEngine.Extensions;

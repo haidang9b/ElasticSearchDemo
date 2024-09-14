@@ -13,8 +13,8 @@ public class RabbitMQMessageSender<T> : IMessageSender<T> where T : class
     private readonly QueueConfiguration _queueConfiguration;
 
     public RabbitMQMessageSender(
-        IConnection connection, 
-        QueueConfiguration queueConfiguration, 
+        IConnection connection,
+        QueueConfiguration queueConfiguration,
         ILogger<RabbitMQMessageSender<T>> logger
     )
     {

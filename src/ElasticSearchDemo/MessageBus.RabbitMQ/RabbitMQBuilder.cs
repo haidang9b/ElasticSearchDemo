@@ -16,16 +16,17 @@ namespace MessageBus.RabbitMQ
 
         #region Consumer Methods
 
-        public RabbitMQBuilder AddConsumer<TMessage, TConsumer>(QueueConfiguration queueConfiguration)
+        public RabbitMQBuilder AddConsumer<TMessage, TMessageHandler>(QueueConfiguration queueConfig)
             where TMessage : class
-            where TConsumer : class, IMessageConsumer<TMessage>
+            where TMessageHandler : class, IMessageHandler<TMessage>
         {
-            _services.AddSingleton<IMessageConsumer<TMessage>, TConsumer>(sp =>
-            {
-                var connection = sp.GetRequiredService<IConnection>();
-                var logger = sp.GetRequiredService<ILogger<TConsumer>>();
+            _services.AddTransient<IMessageHandler<TMessage>, TMessageHandler>();
 
-                return (TConsumer)Activator.CreateInstance(typeof(TConsumer), connection, queueConfiguration, logger);
+            // Register the consumer in DI
+            _services.AddSingleton(serviceProvider =>
+            {
+                var connection = serviceProvider.GetRequiredService<IConnection>();
+                return new RabbitMQConsumer<TMessage>(serviceProvider, connection, queueConfig);
             });
 
             return this;
