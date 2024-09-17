@@ -1,7 +1,6 @@
-﻿namespace MessageBus
+﻿namespace MessageBus;
+
+public interface IMessageHandler<T> where T : class
 {
-    public interface IMessageHandler<T> where T : class
-    {
-        Task HandleAsync(BaseMessage<T> message);
-    }
+    Task HandleAsync(BaseMessage<T> message);
 }

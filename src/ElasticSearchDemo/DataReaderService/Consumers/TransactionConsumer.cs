@@ -3,20 +3,19 @@ using DataReaderService.Messages;
 using DataReaderService.Services;
 using MessageBus;
 
-namespace DataReaderService.Consumers
+namespace DataReaderService.Consumers;
+
+public class TransactionConsumer : IMessageHandler<TransactionMessage>
 {
-    public class TransactionConsumer : IMessageHandler<TransactionMessage>
+    private readonly IReaderService _readerService;
+
+    public TransactionConsumer(IReaderService readerService)
     {
-        private readonly IReaderService _readerService;
+        _readerService = readerService;
+    }
 
-        public TransactionConsumer(IReaderService readerService)
-        {
-            _readerService = readerService;
-        }
-
-        public async Task HandleAsync(BaseMessage<TransactionMessage> message)
-        {
-            await _readerService.IndexDocumentsAsyns(message.Data.ToDto());
-        }
+    public async Task HandleAsync(BaseMessage<TransactionMessage> message)
+    {
+        await _readerService.IndexDocumentsAsyns(message.Data.ToDto());
     }
 }

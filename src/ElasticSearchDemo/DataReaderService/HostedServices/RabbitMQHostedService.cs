@@ -1,31 +1,30 @@
 ﻿using DataReaderService.Messages;
 using MessageBus.RabbitMQ;
 
-namespace DataReaderService.HostedServices
+namespace DataReaderService.HostedServices;
+
+public class RabbitMQHostedService : IHostedService
 {
-    public class RabbitMQHostedService : IHostedService
+    private readonly IEnumerable<RabbitMQConsumer<TransactionMessage>> _consumers;
+
+    public RabbitMQHostedService(IEnumerable<RabbitMQConsumer<TransactionMessage>> consumers)
     {
-        private readonly IEnumerable<RabbitMQConsumer<TransactionMessage>> _consumers;
+        _consumers = consumers;
+    }
 
-        public RabbitMQHostedService(IEnumerable<RabbitMQConsumer<TransactionMessage>> consumers)
+    public Task StartAsync(CancellationToken cancellationToken)
+    {
+        foreach (var consumer in _consumers)
         {
-            _consumers = consumers;
+            consumer.ConnectAndConsume();
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            foreach (var consumer in _consumers)
-            {
-                consumer.ConnectAndConsume();
-            }
+        return Task.CompletedTask;
+    }
 
-            return Task.CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            // Dispose of any consumers if necessary
-            return Task.CompletedTask;
-        }
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        // Dispose of any consumers if necessary
+        return Task.CompletedTask;
     }
 }
