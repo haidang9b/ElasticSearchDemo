@@ -1,6 +1,6 @@
 ﻿using MessageBus;
 
-namespace SearchService.Configurations;
+namespace ESD.SearchService.Configurations;
 
 public class MessageConfiguration
 {

@@ -1,7 +1,7 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace SearchService.Data;
+namespace ESD.SearchService.Data;
 
 public class SearchDbContext : DbContext
 {

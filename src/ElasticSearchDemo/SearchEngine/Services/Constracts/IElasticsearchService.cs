@@ -1,6 +1,6 @@
 ﻿using Elastic.Clients.Elasticsearch;
 
-namespace SearchEngine.Services.Constracts;
+namespace ESD.SearchEngine.Services.Constracts;
 
 public interface IElasticsearchService
 {

@@ -1,4 +1,4 @@
-﻿namespace SearchService.Messages;
+﻿namespace ESD.SearchService.Messages;
 
 public class TransactionMessage
 {

@@ -1,6 +1,6 @@
 ﻿using Core.Domain;
 
-namespace Domain.Models;
+namespace ESD.Domain.Models;
 
 public class Transaction : EntityBase
 {

@@ -1,13 +1,13 @@
-﻿using DataReaderService.Configurations;
-using DataReaderService.Consumers;
-using DataReaderService.HostedServices;
-using DataReaderService.Messages;
-using DataReaderService.Services;
-using MessageBus.RabbitMQ;
+﻿using ESD.DataReaderService.Configurations;
+using ESD.DataReaderService.Consumers;
+using ESD.DataReaderService.HostedServices;
+using ESD.DataReaderService.Messages;
+using ESD.DataReaderService.Services;
+using ESD.MessageBus.RabbitMQ;
+using ESD.SearchEngine.Extensions;
 using RabbitMQ.Client;
-using SearchEngine.Extensions;
 
-namespace DataReaderService.Extensions;
+namespace ESD.DataReaderService.Extensions;
 public static class IServiceCollectionExtensions
 {
     public static IServiceCollection AddAllServices(this IServiceCollection services, IConfiguration configuration)
@@ -37,7 +37,7 @@ public static class IServiceCollectionExtensions
             ?? throw new ArgumentNullException(nameof(RabbitMQConfiguration));
 
         // Register the RabbitMQ connection as a singleton
-        services.AddSingleton<IConnection>(sp =>
+        services.AddSingleton(sp =>
             RabbitMQConnectionFactory.CreateConnection(rabbitMQConfig));
 
         var messageConfig = configuration.GetSection("MessageConfiguration").Get<MessageConfiguration>()

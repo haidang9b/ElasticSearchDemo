@@ -1,6 +1,6 @@
-﻿using MessageBus;
+﻿using ESD.MessageBus;
 
-namespace DataReaderService.Configurations;
+namespace ESD.DataReaderService.Configurations;
 
 public class MessageConfiguration
 {

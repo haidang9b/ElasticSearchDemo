@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration;
 using Domain.Models;
 
-namespace SearchService.Maps;
+namespace ESD.SearchService.Maps;
 
 public class TransactionMap : ClassMap<Transaction>
 {

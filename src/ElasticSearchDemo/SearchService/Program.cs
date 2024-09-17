@@ -1,5 +1,5 @@
-using SearchService.Extensions;
-using SearchService.Routes;
+using ESD.SearchService.Extensions;
+using ESD.SearchService.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 

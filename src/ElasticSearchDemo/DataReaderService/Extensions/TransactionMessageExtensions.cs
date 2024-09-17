@@ -1,7 +1,7 @@
-﻿using DataReaderService.Messages;
-using Domain.Dto;
+﻿using ESD.DataReaderService.Messages;
+using ESD.Domain.Dto;
 
-namespace DataReaderService.Extensions;
+namespace ESD.DataReaderService.Extensions;
 
 public static class TransactionMessageExtensions
 {

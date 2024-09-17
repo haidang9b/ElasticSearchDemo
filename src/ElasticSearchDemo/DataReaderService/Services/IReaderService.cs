@@ -1,6 +1,6 @@
-﻿using Domain.Dto;
+﻿using ESD.Domain.Dto;
 
-namespace DataReaderService.Services;
+namespace ESD.DataReaderService.Services;
 
 public interface IReaderService
 {

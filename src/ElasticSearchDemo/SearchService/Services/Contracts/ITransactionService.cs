@@ -1,6 +1,6 @@
 ﻿using Domain.Dto;
 
-namespace SearchService.Services.Contracts;
+namespace ESD.SearchService.Services.Contracts;
 
 public interface ITransactionService
 {

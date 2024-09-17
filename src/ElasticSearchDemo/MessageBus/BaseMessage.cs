@@ -1,4 +1,4 @@
-﻿namespace MessageBus;
+﻿namespace ESD.MessageBus;
 
 public class BaseMessage<T> where T : class
 {

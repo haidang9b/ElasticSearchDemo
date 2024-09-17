@@ -1,7 +1,7 @@
-﻿using DataReaderService.Messages;
-using MessageBus.RabbitMQ;
+﻿using ESD.DataReaderService.Messages;
+using ESD.MessageBus.RabbitMQ;
 
-namespace DataReaderService.HostedServices;
+namespace ESD.DataReaderService.HostedServices;
 
 public class RabbitMQHostedService : IHostedService
 {

@@ -1,4 +1,4 @@
-﻿namespace SearchService.Services.Contracts;
+﻿namespace ESD.SearchService.Services.Contracts;
 
 public interface ICsvService
 {

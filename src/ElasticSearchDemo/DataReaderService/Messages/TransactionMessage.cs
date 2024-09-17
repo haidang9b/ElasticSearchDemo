@@ -1,4 +1,4 @@
-﻿namespace DataReaderService.Messages;
+﻿namespace ESD.DataReaderService.Messages;
 
 public class TransactionMessage
 {

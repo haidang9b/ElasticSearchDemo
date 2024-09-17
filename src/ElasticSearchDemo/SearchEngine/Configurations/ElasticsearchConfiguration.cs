@@ -1,4 +1,4 @@
-﻿namespace SearchEngine.Configurations;
+﻿namespace ESD.SearchEngine.Configurations;
 
 public class ElasticsearchConfiguration
 {

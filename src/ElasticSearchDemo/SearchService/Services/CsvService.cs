@@ -1,12 +1,12 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using Domain.Models;
-using SearchService.Data;
-using SearchService.Maps;
-using SearchService.Services.Contracts;
+using ESD.SearchService.Data;
+using ESD.SearchService.Maps;
+using ESD.SearchService.Services.Contracts;
 using System.Globalization;
 
-namespace SearchService.Services;
+namespace ESD.SearchService.Services;
 
 public class CsvService(SearchDbContext dbContext) : ICsvService
 {

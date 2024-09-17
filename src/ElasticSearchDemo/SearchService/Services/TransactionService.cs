@@ -1,13 +1,13 @@
 ﻿using Domain.Dto;
 using Domain.Models;
+using ESD.SearchService.Data;
+using ESD.SearchService.Messages;
+using ESD.SearchService.Services.Contracts;
 using MessageBus;
 using Microsoft.EntityFrameworkCore;
 using SearchEngine.Services.Constracts;
-using SearchService.Data;
-using SearchService.Messages;
-using SearchService.Services.Contracts;
 
-namespace SearchService.Services;
+namespace ESD.SearchService.Services;
 
 public class TransactionService : ITransactionService
 {

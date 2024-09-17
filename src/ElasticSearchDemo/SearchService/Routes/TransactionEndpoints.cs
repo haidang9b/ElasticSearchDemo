@@ -1,6 +1,6 @@
-﻿using SearchService.Services.Contracts;
+﻿using ESD.SearchService.Services.Contracts;
 
-namespace SearchService.Routes;
+namespace ESD.SearchService.Routes;
 
 public static class TransactionEndpoints
 {

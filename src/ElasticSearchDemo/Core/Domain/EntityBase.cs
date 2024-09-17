@@ -1,4 +1,4 @@
-﻿namespace Core.Domain;
+﻿namespace ESD.Core.Domain;
 
 public interface IEntity
 {

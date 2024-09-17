@@ -1,9 +1,9 @@
-﻿using DataReaderService.Extensions;
-using DataReaderService.Messages;
-using DataReaderService.Services;
-using MessageBus;
+﻿using ESD.DataReaderService.Extensions;
+using ESD.DataReaderService.Messages;
+using ESD.DataReaderService.Services;
+using ESD.MessageBus;
 
-namespace DataReaderService.Consumers;
+namespace ESD.DataReaderService.Consumers;
 
 public class TransactionConsumer : IMessageHandler<TransactionMessage>
 {

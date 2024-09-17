@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 
-namespace MessageBus.RabbitMQ;
+namespace ESD.MessageBus.RabbitMQ;
 
 public class RabbitMQBuilder
 {

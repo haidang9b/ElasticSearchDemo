@@ -1,7 +1,7 @@
-﻿using Domain.Dto;
-using SearchEngine.Services.Constracts;
+﻿using ESD.Domain.Dto;
+using ESD.SearchEngine.Services.Constracts;
 
-namespace DataReaderService.Services;
+namespace ESD.DataReaderService.Services;
 
 public class ReaderService : IReaderService
 {

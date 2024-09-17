@@ -1,8 +1,8 @@
 ﻿using Elastic.Clients.Elasticsearch;
 using Elastic.Clients.Elasticsearch.Core.Bulk;
-using SearchEngine.Services.Constracts;
+using ESD.SearchEngine.Services.Constracts;
 
-namespace SearchEngine.Services.Business;
+namespace ESD.SearchEngine.Services.Business;
 
 public class ElasticsearchService : IElasticsearchService
 {

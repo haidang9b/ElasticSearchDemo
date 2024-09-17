@@ -1,13 +1,13 @@
 ﻿using Elastic.Clients.Elasticsearch;
 using Elastic.Transport;
+using ESD.SearchEngine.Configurations;
+using ESD.SearchEngine.Services.Business;
+using ESD.SearchEngine.Services.Constracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SearchEngine.Configurations;
-using SearchEngine.Services.Business;
-using SearchEngine.Services.Constracts;
 using System.Net;
 
-namespace SearchEngine.Extensions;
+namespace ESD.SearchEngine.Extensions;
 
 public static class IServiceCollectionExtensions
 {

@@ -1,4 +1,4 @@
-﻿namespace Domain.Dto;
+﻿namespace ESD.Domain.Dto;
 
 public class TransactionDto
 {

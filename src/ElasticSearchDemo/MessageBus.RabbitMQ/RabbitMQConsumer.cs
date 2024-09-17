@@ -4,7 +4,7 @@ using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace MessageBus.RabbitMQ;
+namespace ESD.MessageBus.RabbitMQ;
 
 public class RabbitMQConsumer<TMessage> : IDisposable where TMessage : class
 {

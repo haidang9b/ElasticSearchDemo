@@ -1,4 +1,4 @@
-using DataReaderService.Extensions;
+using ESD.DataReaderService.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

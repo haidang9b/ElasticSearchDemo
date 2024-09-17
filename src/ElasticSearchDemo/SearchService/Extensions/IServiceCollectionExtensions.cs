@@ -1,14 +1,14 @@
-﻿using MessageBus.RabbitMQ;
+﻿using ESD.SearchService.Configurations;
+using ESD.SearchService.Data;
+using ESD.SearchService.Messages;
+using ESD.SearchService.Services;
+using ESD.SearchService.Services.Contracts;
+using MessageBus.RabbitMQ;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
 using SearchEngine.Extensions;
-using SearchService.Configurations;
-using SearchService.Data;
-using SearchService.Messages;
-using SearchService.Services;
-using SearchService.Services.Contracts;
 
-namespace SearchService.Extensions;
+namespace ESD.SearchService.Extensions;
 
 public static class IServiceCollectionExtensions
 {

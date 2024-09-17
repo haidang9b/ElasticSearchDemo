@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace MessageBus.RabbitMQ;
+namespace ESD.MessageBus.RabbitMQ;
 
 public class RabbitMQConnectionFactory
 {

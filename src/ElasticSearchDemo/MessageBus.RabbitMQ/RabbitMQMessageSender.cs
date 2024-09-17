@@ -3,7 +3,7 @@ using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
 
-namespace MessageBus.RabbitMQ;
+namespace ESD.MessageBus.RabbitMQ;
 public class RabbitMQMessageSender<T> : IMessageSender<T> where T : class
 {
     private readonly IConnection _connection;
