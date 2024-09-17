@@ -12,10 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\ESD.Domain.csproj" />
-    <ProjectReference Include="..\MessageBus.RabbitMQ\ESD.MessageBus.RabbitMQ.csproj" />
-    <ProjectReference Include="..\MessageBus\ESD.MessageBus.csproj" />
-    <ProjectReference Include="..\SearchEngine\ESD.SearchEngine.csproj" />
+    <ProjectReference Include="..\ESD.Domain\ESD.Domain.csproj" />
+    <ProjectReference Include="..\ESD.MessageBus.RabbitMQ\ESD.MessageBus.RabbitMQ.csproj" />
+    <ProjectReference Include="..\ESD.MessageBus\ESD.MessageBus.csproj" />
+    <ProjectReference Include="..\ESD.SearchEngine\ESD.SearchEngine.csproj" />
   </ItemGroup>
 
 </Project>

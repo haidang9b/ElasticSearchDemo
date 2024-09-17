@@ -1,4 +1,4 @@
-﻿using Domain.Dto;
+﻿using ESD.Domain.Dto;
 
 namespace ESD.SearchService.Services.Contracts;
 

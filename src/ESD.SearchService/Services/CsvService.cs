@@ -1,6 +1,6 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
-using Domain.Models;
+using ESD.Domain.Models;
 using ESD.SearchService.Data;
 using ESD.SearchService.Maps;
 using ESD.SearchService.Services.Contracts;

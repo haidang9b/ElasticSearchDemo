@@ -1,4 +1,4 @@
-﻿using Domain.Models;
+﻿using ESD.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ESD.SearchService.Data;

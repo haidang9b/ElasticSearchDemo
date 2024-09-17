@@ -1,5 +1,5 @@
 ﻿using CsvHelper.Configuration;
-using Domain.Models;
+using ESD.Domain.Models;
 
 namespace ESD.SearchService.Maps;
 

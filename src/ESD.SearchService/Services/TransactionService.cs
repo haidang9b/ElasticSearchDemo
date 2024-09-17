@@ -1,11 +1,11 @@
-﻿using Domain.Dto;
-using Domain.Models;
+﻿using ESD.Domain.Dto;
+using ESD.Domain.Models;
+using ESD.MessageBus;
+using ESD.SearchEngine.Services.Constracts;
 using ESD.SearchService.Data;
 using ESD.SearchService.Messages;
 using ESD.SearchService.Services.Contracts;
-using MessageBus;
 using Microsoft.EntityFrameworkCore;
-using SearchEngine.Services.Constracts;
 
 namespace ESD.SearchService.Services;
 

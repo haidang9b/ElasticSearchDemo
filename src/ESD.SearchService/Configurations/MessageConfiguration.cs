@@ -1,4 +1,4 @@
-﻿using MessageBus;
+﻿using ESD.MessageBus;
 
 namespace ESD.SearchService.Configurations;
 

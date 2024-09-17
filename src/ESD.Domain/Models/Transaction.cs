@@ -1,4 +1,4 @@
-﻿using Core.Domain;
+﻿using ESD.Core.Domain;
 
 namespace ESD.Domain.Models;
 
