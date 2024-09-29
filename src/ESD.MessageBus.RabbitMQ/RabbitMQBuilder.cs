@@ -32,6 +32,22 @@ public class RabbitMQBuilder
         return this;
     }
 
+    public RabbitMQBuilder AddBulkConsumer<TMessage, TMessageHandler>(QueueConfiguration queueConfig)
+        where TMessage : class
+        where TMessageHandler : class, IBulkMessageHandler<TMessage>
+    {
+        _services.AddTransient<IBulkMessageHandler<TMessage>, TMessageHandler>();
+
+        // Register the consumer in DI
+        _services.AddSingleton(serviceProvider =>
+        {
+            var connection = serviceProvider.GetRequiredService<IConnection>();
+            return new RabbitMQBulkConsumer<TMessage>(serviceProvider, connection, queueConfig);
+        });
+
+        return this;
+    }
+
     public RabbitMQBuilder AddConsumerService<TMessage, TConsumerService>()
         where TMessage : class
         where TConsumerService : BackgroundService

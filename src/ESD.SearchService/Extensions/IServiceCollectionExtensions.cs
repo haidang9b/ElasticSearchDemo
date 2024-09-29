@@ -2,6 +2,7 @@
 using ESD.SearchEngine.Extensions;
 using ESD.SearchService.Configurations;
 using ESD.SearchService.Data;
+using ESD.SearchService.Handlers;
 using ESD.SearchService.Messages;
 using ESD.SearchService.Services;
 using ESD.SearchService.Services.Contracts;
@@ -23,6 +24,9 @@ public static class IServiceCollectionExtensions
         services.AddElasticsearch(configuration);
 
         services.AddRabbitMQ(configuration);
+
+        services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddProblemDetails();
 
         return services;
     }

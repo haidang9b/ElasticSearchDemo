@@ -45,7 +45,7 @@ public static class IServiceCollectionExtensions
         var rabbitMQBuilder = new RabbitMQBuilder(services);
 
         rabbitMQBuilder
-            .AddConsumer<TransactionMessage, TransactionConsumer>(messageConfig.TransactionQueue);
+            .AddBulkConsumer<TransactionMessage, TransactionConsumer>(messageConfig.TransactionQueue);
 
         services.AddHostedService<RabbitMQHostedService>();
         return services;

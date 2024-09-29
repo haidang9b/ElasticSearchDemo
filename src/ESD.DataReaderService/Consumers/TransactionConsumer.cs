@@ -5,7 +5,7 @@ using ESD.MessageBus;
 
 namespace ESD.DataReaderService.Consumers;
 
-public class TransactionConsumer : IMessageHandler<TransactionMessage>
+public class TransactionConsumer : IBulkMessageHandler<TransactionMessage>
 {
     private readonly IReaderService _readerService;
 
@@ -14,8 +14,15 @@ public class TransactionConsumer : IMessageHandler<TransactionMessage>
         _readerService = readerService;
     }
 
-    public async Task HandleAsync(BaseMessage<TransactionMessage> message)
+    //public async Task HandleAsync(BaseMessage<TransactionMessage> message)
+    //{
+    //    await _readerService.IndexDocumentsAsyns(message.Data.ToDto());
+    //}
+
+    public async Task HandleAsync(IEnumerable<BaseMessage<TransactionMessage>> messages)
     {
-        await _readerService.IndexDocumentsAsyns(message.Data.ToDto());
+        var data = messages.Select(x => x.Data.ToDto()).ToArray();
+
+        await _readerService.IndexDocumentsAsyns(data);
     }
 }
