@@ -40,3 +40,39 @@ services:
     volumes:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+  
+  gateway-service:
+    build: 
+      context: .
+      dockerfile: ./src/ESD.Yarp.Gateway/Dockerfile
+    ports:
+      - 5000:5000
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  search-service:
+    build: 
+      context: .
+      dockerfile: ./src/ESD.SearchService/Dockerfile
+    ports:
+      - 5001:5001
+    restart: always
+    depends_on:
+      - rabbitmq
+      - mysqldb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  data-reader-service:
+    build: 
+      context: .
+      dockerfile: ./src/ESD.DataReaderService/Dockerfile
+    ports:
+      - 5005:5005
+    restart: always
+    depends_on:
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+   
